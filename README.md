@@ -1,7 +1,7 @@
 
 # proj-todolist 
-Mobile Design Only
-# Live Page : https://elior-nuriani.github.io/proj-react-todolist/
+# Mobile Design Only
+# Live Page :  https://elior-nuriani.github.io/proj-react-Todolist/
 
 
 
