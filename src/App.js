@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import {Switch, Route} from 'react-router-dom'
+import Homepage from './views/Homepage';
+import Todos from './views/Todos';
+import TodoEdit from './views/TodoEdit';
+import { connect } from 'react-redux'
+import { loadFolders } from './actions/folderAction'
+import { loadTodos } from './actions/todosAction'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+  async componentDidMount() {
+    await this.props.loadFolders();
+    await this.props.loadTodos();
+
+}
+  render(){
+    return (
+      <section className="App container">
+        <Switch>
+          <Route exact path="/" component={Homepage}></Route>
+          <Route exact path="/todos/:folderId" component={Todos}></Route>
+          <Route exact path="/todos/todo/edit/:id?" component={TodoEdit}></Route>
+        </Switch>
+      </section> 
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    folders:state.folder.folders
+  }
+}
+
+const mapDispatchToProps = {
+  loadFolders,
+  loadTodos
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)
+
+
+

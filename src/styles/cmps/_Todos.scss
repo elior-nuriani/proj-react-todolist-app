@@ -1,0 +1,115 @@
+
+.todos-header{
+    height: 12vh;
+    width: 100vw;
+    background-color: $clr-main;
+    padding: $base-app-padding;
+    color: white;
+
+    .todos-header-title {
+        & :first-child{
+            margin-bottom: 5px;
+        }
+        & :last-child:not(:first-child){
+            font-size: calc(12px + (20 - 12) * ((100vw - 300px) / (1600 - 300)));;
+        }
+    }
+}
+
+//Todos Preview Cmps
+
+.todo-container-basic{
+    width: 100vw;
+    min-height: 80px;
+    padding: 20px;
+    border-bottom:1px solid $clr-features;
+    .todo-check-icon{
+        height: 100%;
+        margin-right: 50px;
+        margin-top: 5px;
+        color: $clr-icons;
+        align-self: flex-start;
+    }
+
+    .todo-basic{
+        width: 100%;
+        .todo-info{
+            flex-grow: 1;
+            & > :first-child{
+                margin-bottom: 3px;
+            }
+            & > :not(:first-child).open{
+                margin-bottom: 25px;
+                transition: all 0.3s linear;
+
+            }
+            & > :last-child{
+                margin-bottom: 0px;
+            }
+            .todo-title-main{
+                font-size: calc(14px + (25 - 14) * ((100vw - 300px) / (1600 - 300)));
+                font-weight: bolder;
+            }
+            .todo-title-second, .todo-last-day {
+                font-size: calc(10px + (20 - 10) * ((100vw - 300px) / (1600 - 300)));
+            }
+            .todo-last-day{
+                display: none;
+                height: 0px;
+                transition: all 0.3s linear;
+                &.open{
+                    display: block;
+                    height: auto;
+                }
+                font-size: calc(10px + (20 - 10) * ((100vw - 300px) / (1600 - 300)));
+                color:grey;
+                & :first-child{
+                    margin-right: 10px;
+                  
+                }
+
+            }
+        }
+    }
+
+}
+
+.todo-container-more{
+    display: none;
+    height: 0px;
+    &.open{
+        display: flex;
+        height: auto;
+    }
+    width: 100%;
+    margin-bottom: 0px;
+    transition: all 0.3s linear;
+    * > {
+        margin: 0;
+    }
+    .more-icon{
+        font-size: calc(12px + (25 - 12) * ((100vw - 300px) / (1600 - 300)));
+        color: $clr-main;
+        &.priority{
+            color: rgba(255, 217, 0, 0.657);
+        }
+        // &.edit{
+        //     color:$clr-main;
+        // }
+        // &.remove{
+        //     color: rgba(255, 0, 0, 0.555);
+        // }
+        // &.recycle{
+        //     color: $clr-icons;
+        // }
+    }
+}
+
+
+@media (min-width:700px){
+    .todos-header, .todo-container-basic{
+        width: 100%;
+    }
+    
+}
+

@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    font-family: bal-sans-reg;
+}
+
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: $clr-back;
+}
+
+h1{
+    font-family: raleway-reg;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+
+.btn, button{
+    cursor: pointer;
+}
+
+
+.add{
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    bottom: 0%;
+    right: 0%;
+    color: white;
+    background-color: $clr-main;
+    border-radius: 20px 0px 0px 0px;
+    z-index: 99;
+}

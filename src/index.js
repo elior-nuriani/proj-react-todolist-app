@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/global.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store';
+import { Provider } from 'react-redux';
+import ScrollToTop from './cmps/ScrollToTop';
+import { HashRouter as Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router history={history}>
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
